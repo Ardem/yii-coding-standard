@@ -51,3 +51,17 @@ How to use in IDE
 3. Zend Studio
 
         http://files.zend.com/help/Zend-Studio/content/working_with_php_codesniffer.htm
+
+How to be sure, that it works for everybody in the team
+------------------------------------------------------
+
+Use pre-commit hooks, which will make a code standard check for every commit.
+
+1. For Git
+        
+        http://git-scm.com/book/en/Customizing-Git-Git-Hooks
+
+2. For SVN
+
+        http://pear.php.net/manual/ru/package.php.php-codesniffer.svn-pre-commit.php
+        
