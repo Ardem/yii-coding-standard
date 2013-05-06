@@ -1,29 +1,16 @@
 <?xml version="1.0"?>
 <ruleset name="Yii2">
-	<description>The Yii Framework coding standard. You can use it for 2.X.X version of framework.</description>
-	<!--
-		We don't need to use this code standarts for core files and for views.
-		
-		The following two tags are equivalent to the command line
-		argument: --ignore=*/views/*,*/framework/*
-	-->
-	<exclude-pattern>*/views/*</exclude-pattern>
-	<exclude-pattern>*/framework/*</exclude-pattern>
-	
-	<!--
-		Include few sniffs from the PHP_CodeSniffer
-	-->
-	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
-	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
-	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
-	
-	<!-- 
-		Import Zend coding standard 
-	-->
-	<rule ref="Zend">
-		<exclude name="Zend.Debug.CodeAnalyzer"/>
-		<exclude name="Zend.Files.ClosingTag"/>
-		<exclude name="Generic.Files.LineLength"/>
-		<exclude name="Generic.WhiteSpace.DisallowSpaceIndentSniff"/>
-	</rule>
+        <description>The Yii Framework coding standard. You can use it for 2.X.X version of framework.</description>
+
+        <!-- We don't need to use this code standarts for core files and for views. -->
+        <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/framework/*</exclude-pattern>
+
+        <!-- Include Generic sniffs -->
+        <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
+        <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+        <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+        
+	<!-- Include Squiz sniffs -->
+	<rule ref="Squiz.Classes.ValidClassName"/>
 </ruleset>
