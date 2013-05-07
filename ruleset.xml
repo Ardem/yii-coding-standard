@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
-<ruleset name="Yii2">
-        <description>The Yii Framework coding standard. You can use it for 2.X.X version of framework.</description>
+<ruleset name="Yii">
+        <description>The Yii Framework coding standard. You can use it for 1.X.X or 2.X.X version of framework.</description>
 
-        <!-- We don't need to use this code standarts for core files and for views. -->
+        <!-- We don't need to use this code standarts for views. -->
         <exclude-pattern>*/views/*</exclude-pattern>
-        <exclude-pattern>*/framework/*</exclude-pattern>
 
         <!-- Include Generic sniffs -->
         <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>

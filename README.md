@@ -1,4 +1,4 @@
-Yii2 Framework PHP CodeSniffer Coding Standard
+Yii Framework PHP CodeSniffer Coding Standard
 ==============================================
 
 !!! Alpha version. Don't use it in production !!!
@@ -16,15 +16,15 @@ How to install
 
         pear install PHP_CodeSniffer
 
-3. Install Yii2 Coding Standard:
+3. Install Yii Coding Standard:
 
         pear config-show | grep php_dir
         cd /path/to/pear/PHP/CodeSniffer/Standards
-        git clone git://github.com/Ardem/yii2-coding-standard.git Yii2
+        git clone git://github.com/Ardem/yii-coding-standard.git Yii
 
-4. If you want, you can set Yii2 as coding standard by default:
+4. If you want, you can set Yii as coding standard by default:
 
-        phpcs --config-set default_standard Yii2
+        phpcs --config-set default_standard Yii
 
 How to make a simple test
 -------------------------
@@ -52,8 +52,8 @@ How to use in IDE
 
         http://files.zend.com/help/Zend-Studio/content/working_with_php_codesniffer.htm
 
-How to be sure, that it works for everybody in the team
-------------------------------------------------------
+How to make a standard coding in the team
+-----------------------------------------
 
 Use pre-commit hooks, which will make a code standard check for every commit.
 
