@@ -14,14 +14,17 @@
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
         <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
 
-
         <!-- Include PEAR sniffs -->
+	<rule ref="PEAR.ControlStructures.ControlSignature"/>
 	<rule ref="PEAR.NamingConventions.ValidFunctionName"/>
-        
+
+	<!-- Include PSR2 sniffs -->
+	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+
 	<!-- Include Squiz sniffs -->
 	<rule ref="Squiz.Classes.ClassFileName"/>
 	<rule ref="Squiz.Classes.ValidClassName"/>
-
+		
 	<!-- Include Zend sniffs -->
         <rule ref="Zend.NamingConventions.ValidVariableName"/>
 
