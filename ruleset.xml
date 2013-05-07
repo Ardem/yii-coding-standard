@@ -6,10 +6,27 @@
         <exclude-pattern>*/views/*</exclude-pattern>
 
         <!-- Include Generic sniffs -->
+	<rule ref="Generic.Files.OneClassPerFile"/>
+	<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
         <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
         <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+	<rule ref="Generic.NamingConventions.ConstructorName"/>
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
         <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+
+
+        <!-- Include PEAR sniffs -->
+	<rule ref="PEAR.NamingConventions.ValidFunctionName"/>
         
 	<!-- Include Squiz sniffs -->
+	<rule ref="Squiz.Classes.ClassFileName"/>
 	<rule ref="Squiz.Classes.ValidClassName"/>
+
+	<!-- Include Zend sniffs -->
+        <rule ref="Zend.NamingConventions.ValidVariableName"/>
+
+	<!-- Change messages -->
+	<rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+		<message>%s name "%s" is not in StudlyCaps format</message>
+	</rule>
 </ruleset>
