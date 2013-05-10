@@ -4,7 +4,6 @@ Yii Framework PHP CodeSniffer Coding Standard
 !!! Don't use it in production. It's not a full version !!! 
 
 It's necessary to add this rules:
-- UTF-8;
 - new MyClass();
 - @Doc;
 - single line expressions on next line, without braces.
