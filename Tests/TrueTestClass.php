@@ -7,7 +7,7 @@ class TrueTestClass
 
 	public $testProperty = true;
 
-	public function testMethod() 
+	public function testMethod()
 	{
 		if(true)
 			return false;
@@ -15,10 +15,10 @@ class TrueTestClass
 		return true;
 	}
 
-	private function _privateMethod() 
+	private function _privateMethod()
 	{
 		if (true) {
-	
+
 		} elseif (false) {
 
 		}
