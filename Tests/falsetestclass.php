@@ -8,8 +8,7 @@ class testClassController
 	public $Test_Property = true;
 
 	public function Test_Method() {
-		if(true)
-			return false;
+		if(true) return false;
 
 		return true;
         }
@@ -28,3 +27,6 @@ class testClassController
 class SecondClass {
 
 }
+
+$new = new testClassController;
+

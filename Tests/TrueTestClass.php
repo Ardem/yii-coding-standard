@@ -24,3 +24,5 @@ class TrueTestClass
 		}
 	}
 }
+
+$new = new TrueTestClass();
