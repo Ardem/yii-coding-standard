@@ -23,7 +23,6 @@
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
 
 	<!-- Include Squiz sniffs -->
-	<rule ref="Squiz.ControlStructures.InlineIfDeclaration"/>
 	<rule ref="Squiz.Classes.ClassFileName"/>
 	<rule ref="Squiz.Classes.ValidClassName"/>
 		
