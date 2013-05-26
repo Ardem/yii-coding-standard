@@ -9,8 +9,19 @@ class TrueTestClass
 
 	public function testMethod()
 	{
-		if(true)
+		if (true)
+			return true;
+		else
 			return false;
+		
+		while (true)
+			return true;
+		
+		for (true;true;true)
+			return true;
+		
+		foreach (array(true) as $var)
+			return true;
 
 		return true;
 	}

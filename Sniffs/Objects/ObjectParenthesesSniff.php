@@ -46,8 +46,6 @@ class Yii_Sniffs_Objects_ObjectParenthesesSniff implements PHP_CodeSniffer_Sniff
 	 * @return void
 	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
-		$tokens = $phpcsFile->getTokens();
-
 		$allowedTokens = array(
 			T_OPEN_PARENTHESIS,
 			T_CLOSE_PARENTHESIS,
@@ -61,4 +59,3 @@ class Yii_Sniffs_Objects_ObjectParenthesesSniff implements PHP_CodeSniffer_Sniff
 		}
 	} //end process()
 } //end class
-?>

@@ -8,12 +8,16 @@ class testClassController
 	public $Test_Property = true;
 
 	public function Test_Method() {
-		if(true) return false;
+		if  (true) return true;
+		else return false;
+		while(true) return true;
+		for(true;true;true) return true;
+		foreach(array(true) as $var) return true;
 
 		return true;
         }
 
-	private function _Private_Method() {
+	public function _Private_Method() {
 		if (true)
 		{
 	

@@ -5,7 +5,6 @@ Yii Framework PHP CodeSniffer Coding Standard
 
 It's necessary to add this rules:
 - @Doc;
-- single line expressions on next line, without braces.
 
 You can read about Yii standard here: https://github.com/yiisoft/yii/wiki/Core-framework-code-style
 

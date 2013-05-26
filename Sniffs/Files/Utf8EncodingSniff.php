@@ -81,5 +81,3 @@ class Yii_Sniffs_Files_Utf8EncodingSniff implements PHP_CodeSniffer_Sniff
 	}//end process()
 
 }//end class
-
-?>
