@@ -65,7 +65,7 @@ class Yii_Sniffs_Files_Utf8EncodingSniff implements PHP_CodeSniffer_Sniff
 
 		$filePath    = $phpcsFile->getFilename();
 		$fileContent = file_get_contents($filePath);
-		$encoding    = mb_detect_encoding($fileContent);
+		$encoding    = mb_detect_encoding($fileContent, 'UTF-8, ASCII, ISO-8859-1');
 
 		if ($encoding !== 'UTF-8') {
 			$fileName = basename($filePath);
