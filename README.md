@@ -1,10 +1,8 @@
-Yii Framework PHP CodeSniffer Coding Standard
+Yii Framework PHP CodeSniffer Coding Standard (official repo)
 ==============================================
 
-!!! Don't use it in production. It's not a full version !!! 
-
-It's necessary to add this rules:
-- @Doc;
+It's an alpha version. For the full matching with Yii standards it's necessary to add just one rule:
+- @Doc checking;
 
 You can read about Yii standard here: https://github.com/yiisoft/yii/wiki/Core-framework-code-style
 
