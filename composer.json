@@ -11,9 +11,7 @@
                 }
         ],
         "support": {
-        	"issues": "https://github.com/Ardem/yii-coding-standard/issues",
-                "howto" : "https://github.com/Ardem/yii-coding-standard/blob/master/README.md",
-		"source": "https://github.com/Ardem/yii-coding-standard"
+        	"issues": "https://github.com/Ardem/yii-coding-standard/issues"
 	},
         "require": {
                 "squizlabs/php_codesniffer": ">=1.4.2"
