@@ -1,0 +1,21 @@
+{
+        "name": "ardem/yii-coding-standard",
+        "description": "Yii Framework PHP CodeSniffer Coding Standard.",
+        "keywords": ["yii", "phpcs", "coding standards"],
+        "license": "BSD-3-Clause",
+        "authors": [
+                {
+                        "name": "Artem Demchenkov",
+                        "homepage": "https://github.com/Ardem",
+                        "role": "Maintainer"
+                }
+        ],
+        "support": {
+        	"issues": "https://github.com/Ardem/yii-coding-standard/issues",
+                "howto" : "https://github.com/Ardem/yii-coding-standard/blob/master/README.md",
+		"source": "https://github.com/Ardem/yii-coding-standard"
+	},
+        "require": {
+                "squizlabs/php_codesniffer": ">=1.4.2"
+        }
+}
