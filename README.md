@@ -19,9 +19,8 @@ How to install
 
 3. Install Yii Coding Standard:
 
-        pear config-show | grep php_dir
-        cd /path/to/pear/PHP/CodeSniffer/Standards
         git clone git://github.com/Ardem/yii-coding-standard.git Yii
+        sudo ln -sv /path/to/yii-coding-standard/Yii $(pear config-get php_dir)/PHP/CodeSniffer/Standards
 
 4. If you want, you can set Yii as coding standard by default:
 
@@ -30,16 +29,24 @@ How to install
 How to make a simple test
 -------------------------
 
-1. Checking a file
+1. Checking a file (if yii-coding-standard is your standard by default)
 
         phpcs path/to/file.php
         
-2. Checking a directory
+2. Checking a file (if yii-coding-standard is NOT your standard by default)
+
+        phpcs --standard=Yii /path/to/file.php
+        
+3. Checking a directory (if yii-coding-standard is your standard by default)
 
         phpcs /path/to/directory
+
+4. Checking a directory (if yii-coding-standard is NOT your standard by default)
+
+        phpcs --standard=Yii /path/to/directory
         
-How to use in IDE
------------------
+How to use CS in IDE
+--------------------
 
 1. NetBeans:
 
@@ -65,4 +72,15 @@ Use pre-commit hooks, which will make a code standard check for every commit.
 2. For SVN
 
         http://pear.php.net/manual/ru/package.php.php-codesniffer.svn-pre-commit.php
+
+Yii-coding-standard and Composer
+--------------------------------
+
+For using "yii-coding-standard" with Composer, include a dependency for "ardem/yii-coding-standard" in your composer.json file:
+
+{
+    "require": {
+        "ardem/yii-coding-standard": "dev-master"
+    }
+}
         
