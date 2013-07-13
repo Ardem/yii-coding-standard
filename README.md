@@ -78,9 +78,9 @@ Yii-coding-standard and Composer
 
 For using "yii-coding-standard" with Composer, include a dependency for "ardem/yii-coding-standard" in your composer.json file:
 
-{
-    "require": {
-        "ardem/yii-coding-standard": "dev-master"
-    }
-}
+        {
+                "require": {
+                        "ardem/yii-coding-standard": "dev-master"
+                }
+        }
         
