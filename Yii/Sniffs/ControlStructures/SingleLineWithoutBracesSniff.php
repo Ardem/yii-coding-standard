@@ -28,6 +28,23 @@
 class Yii_Sniffs_ControlStructures_SingleLineWithoutBracesSniff implements PHP_CodeSniffer_Sniff {
 	
 	/**
+	 * Process the tokens that this sniff is listening for.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file where the token was found.
+	 * @param int|array            $types     The type(s) of tokens to search for.
+	 * @param int                  $start     The position to start searching from in the token stack.
+	 * @param int                  $end       The end position to fail if no token is found. if not specified or null, end will default to the end of the token stack.
+	 * @param bool                 $exclude   If true, find the next token that is NOT of a type specified in $types.
+	 * @param string               $value     The value that the token(s) must be equal to. If value is omitted, tokens with any value will be returned.
+	 * @param bool                 $local     If true, tokens outside the current statement will not be checked. i.e., checking will stop at the next semi-colon found.
+	 *
+	 * @return void
+	 */
+	private function findNext($phpcsFile, $types, $start, $end = null, $exclude = false, $value = null, $local = false) {
+		return  $phpcsFile->findNext($types, $start, $end, $exclude, $value, $local);
+	}
+
+	/**
 	 * Registers the token types that this sniff wishes to listen to.
 	 *
 	 * @return array
@@ -53,16 +70,32 @@ class Yii_Sniffs_ControlStructures_SingleLineWithoutBracesSniff implements PHP_C
 	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
 
+		$tokens        = $phpcsFile->getTokens();
+		$startPosition = $stackPtr + 1;
+
 		$allowedTokens = array(
 			T_OPEN_CURLY_BRACKET
 		);
 
-		$next = $phpcsFile->findNext($allowedTokens, ($stackPtr + 1), null, false, null, true);
-		
+		// special trick for "FOR". Exclude 2 internal semicolons 
+		if ($tokens[$stackPtr]['code'] == T_FOR) {
+
+			$specialTokens = array(
+				T_SEMICOLON
+			);
+
+			$next = $stackPtr;
+
+			for ($i = 0; $i <= 1; $i++)
+				$next = $this->findNext($phpcsFile, $specialTokens, ($next + 1), null, false, null, false);
+
+			$startPosition = $next + 1;
+		} // end if
+
+		$next = $this->findNext($phpcsFile, $allowedTokens, $startPosition, null, false, null, true);
+
 		if ($next === false) { // this is single line structure.
 			
-			$tokens = $phpcsFile->getTokens();
-
 			// check the whitespace after tocken
 			if ($tokens[$stackPtr + 1]['type'] != 'T_WHITESPACE' || strlen($tokens[$stackPtr + 1]['content']) > 1) {
 				$error = 'Single line condition must have a one whitespace before opening parenthesis';
@@ -96,6 +129,6 @@ class Yii_Sniffs_ControlStructures_SingleLineWithoutBracesSniff implements PHP_C
 				$error = 'Single line "%s" must have an expression started from new line. ';
 				$phpcsFile->addError($error, $stackPtr, 'SingleLineExpressionMustHaveANewLineExpression', array(strtoupper($tokens[$stackPtr]['content'])));
 			}
-		}
+		} // end if
 	} //end process()
 } //end class

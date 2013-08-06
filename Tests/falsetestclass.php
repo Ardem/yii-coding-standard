@@ -14,6 +14,29 @@ class testClassController
 		for(true;true;true) return true;
 		foreach(array(true) as $var) return true;
 
+		for ($i = 0; $i < 10; $i++) {
+			$test = true;
+			$test = false;
+		}
+
+		for ($i = 0; $i < 10; $i++) 
+			$test = true;
+
+		if (true) {
+			$test = true;
+			$test = true;
+		} else {
+			$test = true;
+		}
+
+		foreach (array(true) as $var) {
+			return true;
+		}
+
+		while (false) {
+			return true;
+		}
+
 		return true;
         }
 
