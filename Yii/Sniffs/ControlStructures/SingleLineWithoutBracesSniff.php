@@ -125,6 +125,29 @@ class Yii_Sniffs_ControlStructures_SingleLineWithoutBracesSniff implements PHP_C
 				$n++;
 			}
 			
+			// next token is a semicolon and we're looking at a while() structure - chances are it's a do-while
+			if ($tokens[$closeBracket + $n]['type'] == 'T_SEMICOLON' && $tokens[$stackPtr]['code'] == T_WHILE) {
+				$p = 1;
+				while ($tokens[$stackPtr - $p]['type'] == 'T_WHITESPACE') { // check for previous token
+					$p++;
+				}
+				if ($tokens[$stackPtr - $p]['code'] == T_CLOSE_CURLY_BRACKET
+				&& $tokens[$tokens[$stackPtr - $p]['scope_condition']]['code'] == T_DO) {
+					return; // a do-while structure with explicit do {} block, should be ignored
+				}
+				if ($tokens[$stackPtr - $p]['code'] == T_SEMICOLON) {
+					// a statement precedes the while() structure, may be single line do block
+					// check for the previous semicolon or 'do' keyword, whichever comes first
+					$p++;
+					while (!in_array($tokens[$stackPtr - $p]['code'], array(T_SEMICOLON, T_DO))) {
+						$p++;
+					}
+					if ($tokens[$stackPtr - $p]['code'] == T_DO) {
+						return; // it's a single statement do block
+					}
+				}
+			}
+
 			if ($newline === false) {
 				$error = 'Single line "%s" must have an expression started from new line. ';
 				$phpcsFile->addError($error, $stackPtr, 'SingleLineExpressionMustHaveANewLineExpression', array(strtoupper($tokens[$stackPtr]['content'])));
