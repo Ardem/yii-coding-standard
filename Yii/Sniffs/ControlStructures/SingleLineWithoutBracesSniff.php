@@ -135,6 +135,17 @@ class Yii_Sniffs_ControlStructures_SingleLineWithoutBracesSniff implements PHP_C
 				&& $tokens[$tokens[$stackPtr - $p]['scope_condition']]['code'] == T_DO) {
 					return; // a do-while structure with explicit do {} block, should be ignored
 				}
+				if ($tokens[$stackPtr - $p]['code'] == T_SEMICOLON) {
+					// a statement precedes the while() structure, may be single line do block
+					// check for the previous semicolon or 'do' keyword, whichever comes first
+					$p++;
+					while (!in_array($tokens[$stackPtr - $p]['code'], array(T_SEMICOLON, T_DO))) {
+						$p++;
+					}
+					if ($tokens[$stackPtr - $p]['code'] == T_DO) {
+						return; // it's a single statement do block
+					}
+				}
 			}
 
 			if ($newline === false) {
