@@ -125,14 +125,15 @@ class Yii_Sniffs_ControlStructures_SingleLineWithoutBracesSniff implements PHP_C
 				$n++;
 			}
 			
+			// next token is a semicolon and we're looking at a while() structure - chances are it's a do-while
 			if ($tokens[$closeBracket + $n]['type'] == 'T_SEMICOLON' && $tokens[$stackPtr]['code'] == T_WHILE) {
 				$p = 1;
-				while ($tokens[$stackPtr - $p]['type'] == 'T_WHITESPACE') {
+				while ($tokens[$stackPtr - $p]['type'] == 'T_WHITESPACE') { // check for previous token
 					$p++;
 				}
 				if ($tokens[$stackPtr - $p]['code'] == T_CLOSE_CURLY_BRACKET
 				&& $tokens[$tokens[$stackPtr - $p]['scope_condition']]['code'] == T_DO) {
-					return; // a do-while structure, should be ignored
+					return; // a do-while structure with explicit do {} block, should be ignored
 				}
 			}
 
